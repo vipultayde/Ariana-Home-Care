@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=2">
   <link rel="icon" href="images/logo.jpeg" type="image/jpeg">
   <script type="application/ld+json">
   {
@@ -47,7 +47,7 @@
     <div class="container topbar-inner">
       <span class="topbar-item">
         <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm1 10.6 4 2.3-.8 1.3L11 13V7h2Z"/></svg>
-        Open 24 Hours · All Days
+        Open 24 Hours · At Your Home Within 1 Hour
       </span>
       <a class="topbar-item" href="tel:+917888017233">
         <svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.6 15.6 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.6 1 1 0 0 1-.25 1Z"/></svg>
@@ -69,22 +69,41 @@
         </span>
       </a>
       <nav class="nav-links" id="navLinks">
+        <div class="drawer-head">
+          <img src="images/logo.jpeg" alt="Ariana Home Care logo">
+          <div class="drawer-head-text">
+            <strong>Ariana Home Care</strong>
+            <small>Nagpur · Open 24×7</small>
+          </div>
+          <button class="drawer-close" id="drawerClose" aria-label="Close menu">
+            <svg viewBox="0 0 24 24"><path d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7l1.4-1.4 6.3 6.3 6.3-6.3Z" transform="translate(1.5 0)"/></svg>
+          </button>
+        </div>
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#mission">Mission</a>
         <a href="#services">Services</a>
-        <a href="#care-scale">Care Scale</a>
+        <a href="#care-scale">Care Plans</a>
         <a href="#founder">Founder</a>
+        <a href="careers.html">Careers</a>
         <a href="#contact">Contact</a>
         <a href="tel:+917888017233" class="btn btn-primary nav-cta">
           <svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.6 15.6 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.6 1 1 0 0 1-.25 1Z"/></svg>
           Call Now
         </a>
+        <div class="drawer-foot">
+          <a href="https://wa.me/917888017233?text=Hello%20Ariana%20Home%20Care%2C%20I%20need%20home%20care%20services." target="_blank" rel="noopener" class="btn btn-whatsapp btn-block">
+            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1a14 14 0 0 1-1.5-.5 11.6 11.6 0 0 1-4.4-3.9 5 5 0 0 1-1-2.7 2.9 2.9 0 0 1 .9-2.2.9.9 0 0 1 .7-.3h.5c.2 0 .4 0 .6.4l.8 2c.1.2.1.4 0 .6l-.4.6-.3.3c-.1.2-.2.3-.1.5a7.6 7.6 0 0 0 1.4 1.8 8.7 8.7 0 0 0 2 1.3c.3.1.4.1.6-.1l.7-.9c.2-.2.4-.3.6-.2l1.8.9c.3.1.5.2.5.3a2.3 2.3 0 0 1-.1 1Z"/></svg>
+            WhatsApp Us
+          </a>
+          <p class="drawer-note">⚡ We reach your home within 1 hour</p>
+        </div>
       </nav>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
+    <div class="nav-backdrop" id="navBackdrop"></div>
   </header>
 
   <!-- ======= HERO ======= -->
@@ -112,6 +131,7 @@
           </a>
         </div>
         <ul class="hero-trust">
+          <li><svg viewBox="0 0 24 24"><path d="m9.5 16.4-4-4L4 13.9l5.5 5.5L21 7.9l-1.5-1.4Z"/></svg> Service at your home within 1 hour</li>
           <li><svg viewBox="0 0 24 24"><path d="m9.5 16.4-4-4L4 13.9l5.5 5.5L21 7.9l-1.5-1.4Z"/></svg> Verified &amp; trained caregivers</li>
           <li><svg viewBox="0 0 24 24"><path d="m9.5 16.4-4-4L4 13.9l5.5 5.5L21 7.9l-1.5-1.4Z"/></svg> Structured nursing assessment</li>
           <li><svg viewBox="0 0 24 24"><path d="m9.5 16.4-4-4L4 13.9l5.5 5.5L21 7.9l-1.5-1.4Z"/></svg> Serving all of Nagpur</li>
@@ -163,7 +183,7 @@
       <div class="stat reveal"><strong data-count="5.0">5.0</strong><span>Google Rating ★</span></div>
       <div class="stat reveal"><strong>24×7</strong><span>Care Availability</span></div>
       <div class="stat reveal"><strong data-count="12" data-suffix="+">12+</strong><span>Years Founder Experience</span></div>
-      <div class="stat reveal"><strong data-count="11" data-suffix="+">11+</strong><span>Home Care Services</span></div>
+      <div class="stat reveal"><strong>1 Hr</strong><span>Service Response Time</span></div>
     </div>
   </section>
 
@@ -413,24 +433,36 @@
       </div>
       <div class="scale-grid">
         <div class="scale-card level-1 reveal">
-          <span class="level-badge">Level 1</span>
-          <h3>Basic Support</h3>
-          <p>Companionship, supervision and help with daily activities for largely independent patients.</p>
+          <img class="scale-img" src="plans/1.jpeg" alt="Basic Care — caregiver helping an elderly woman at home" loading="lazy">
+          <div class="scale-body">
+            <span class="level-badge">Level 1</span>
+            <h3>Basic Care</h3>
+            <p>Personal care, hygiene assistance, companionship, meal support, and daily living support for a better quality of life.</p>
+          </div>
         </div>
         <div class="scale-card level-2 reveal">
-          <span class="level-badge">Level 2</span>
-          <h3>Assisted Care</h3>
-          <p>Trained attendant support for mobility, hygiene, feeding and routine health monitoring.</p>
+          <img class="scale-img" src="plans/2.jpeg" alt="Moderate Care — nurse assisting a patient with medication" loading="lazy">
+          <div class="scale-body">
+            <span class="level-badge">Level 2</span>
+            <h3>Moderate Care</h3>
+            <p>Support for recovery and daily health needs including medication management, mobility assistance, and regular monitoring.</p>
+          </div>
         </div>
         <div class="scale-card level-3 reveal">
-          <span class="level-badge">Level 3</span>
-          <h3>Skilled Nursing</h3>
-          <p>Qualified nursing procedures — wound care, injections, catheter and tube feeding management.</p>
+          <img class="scale-img" src="plans/3.jpeg" alt="Premium Nursing Care — nurse performing wound care at home" loading="lazy">
+          <div class="scale-body">
+            <span class="level-badge">Level 3</span>
+            <h3>Premium Nursing Care</h3>
+            <p>Skilled nursing support for complex needs such as wound care, catheter care, tube feeding, dementia care, and post-surgical recovery.</p>
+          </div>
         </div>
         <div class="scale-card level-4 reveal">
-          <span class="level-badge">Level 4</span>
-          <h3>Intensive / Palliative</h3>
-          <p>Advanced clinical care for critical, post-ICU and palliative patients with close supervision.</p>
+          <img class="scale-img" src="plans/4.jpeg" alt="Critical Care — ICU-level care with ventilator support at home" loading="lazy">
+          <div class="scale-body">
+            <span class="level-badge">Level 4</span>
+            <h3>Critical Care</h3>
+            <p>Advanced, ICU-level care at home for critical conditions requiring continuous monitoring, ventilator support, and skilled nursing round the clock.</p>
+          </div>
         </div>
       </div>
       <p class="scale-note reveal">The exact level is decided after a structured nursing assessment by our clinical team.</p>
@@ -639,8 +671,9 @@
         <a href="#mission">Mission &amp; Vision</a>
         <a href="#pillars">Core Pillars</a>
         <a href="#services">Services</a>
-        <a href="#care-scale">4-Level Care Scale</a>
+        <a href="#care-scale">Care Plans</a>
         <a href="#founder">Founder</a>
+        <a href="careers.html">Careers</a>
         <a href="#contact">Contact</a>
       </div>
       <div class="footer-col">
@@ -677,6 +710,6 @@
     <a href="https://wa.me/917888017233" target="_blank" rel="noopener" class="btn btn-whatsapp">💬 WhatsApp</a>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=2"></script>
 </body>
 </html>
