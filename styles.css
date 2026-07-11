@@ -939,8 +939,11 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md)
     transform: translateX(110%);
     transition: transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1);
     overflow-y: auto;
+    scrollbar-width: none;          /* Firefox */
+    -ms-overflow-style: none;       /* old Edge/IE */
     z-index: 80;
   }
+  .nav-links::-webkit-scrollbar { display: none; } /* Chrome/Safari */
   .nav-links.open { transform: translateX(0); }
 
   .nav-backdrop {
@@ -960,9 +963,9 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md)
     display: flex;
     align-items: center;
     gap: 12px;
-    padding-bottom: 16px;
+    padding-bottom: 12px;
     border-bottom: 1px solid rgba(22, 48, 63, 0.08);
-    margin-bottom: 8px;
+    margin-bottom: 4px;
   }
   .drawer-head img {
     width: 46px; height: 46px;
@@ -988,9 +991,9 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md)
   .drawer-close svg { width: 16px; height: 16px; fill: var(--teal-dark); }
 
   .nav-links a:not(.btn) {
-    font-size: 1.02rem;
+    font-size: 0.98rem;
     font-weight: 600;
-    padding: 14px 4px;
+    padding: 11px 4px;
     border-bottom: 1px solid rgba(22, 48, 63, 0.06);
     display: flex;
     align-items: center;
@@ -1010,21 +1013,22 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md)
   .nav-links a.active::after { color: var(--teal); }
 
   .nav-links .nav-cta {
-    margin-top: 20px;
-    justify-content: center;
-    padding: 14px;
-    font-size: 1rem;
-  }
-  .drawer-foot { display: block; margin-top: 12px; }
-  .drawer-note {
     margin-top: 14px;
+    justify-content: center;
+    padding: 12px;
+    font-size: 0.96rem;
+  }
+  .drawer-foot { display: block; margin-top: 10px; }
+  .drawer-foot .btn { padding: 12px; font-size: 0.96rem; }
+  .drawer-note {
+    margin-top: 10px;
     text-align: center;
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 600;
     color: var(--teal-dark);
     background: var(--mint);
     border-radius: 10px;
-    padding: 9px 12px;
+    padding: 8px 12px;
   }
 
   .mobile-callbar { display: flex; }
