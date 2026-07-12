@@ -1004,21 +1004,23 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md)
   .rating-copy .btn { margin-inline: auto; }
   .contact-grid { grid-template-columns: 1fr; }
 
-  /* Mobile nav — slide-in drawer */
+  /* Mobile nav — compact top sheet, all items visible at once
+     (2-column link grid keeps total height under even small phone screens) */
   .hamburger { display: flex; }
   .nav-links {
     position: fixed;
-    top: 0; right: 0; bottom: 0; left: auto;
-    width: min(330px, 86vw);
+    top: 0; left: 0; right: 0; bottom: auto;
+    width: 100%;
+    max-height: 100dvh;
     background: var(--white);
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
-    gap: 0;
-    padding: 14px 20px 18px;
-    border-radius: 22px 0 0 22px;
-    box-shadow: -20px 0 55px rgba(22, 48, 63, 0.25);
-    transform: translateX(110%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+    align-content: start;
+    padding: 14px 16px 18px;
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 24px 60px rgba(22, 48, 63, 0.3);
+    transform: translateY(-108%);
     transition: transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1);
     overflow-y: auto;
     scrollbar-width: none;          /* Firefox */
@@ -1026,7 +1028,7 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md)
     z-index: 80;
   }
   .nav-links::-webkit-scrollbar { display: none; } /* Chrome/Safari */
-  .nav-links.open { transform: translateX(0); }
+  .nav-links.open { transform: translateY(0); }
 
   .nav-backdrop {
     display: block;
@@ -1042,12 +1044,13 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md)
   .nav-backdrop.open { opacity: 1; pointer-events: auto; }
 
   .drawer-head {
+    grid-column: 1 / -1;
     display: flex;
     align-items: center;
     gap: 12px;
-    padding-bottom: 12px;
+    padding-bottom: 10px;
     border-bottom: 1px solid rgba(22, 48, 63, 0.08);
-    margin-bottom: 4px;
+    margin-bottom: 2px;
   }
   .drawer-head img {
     width: 40px; height: 40px;
@@ -1073,39 +1076,39 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md)
   .drawer-close svg { width: 16px; height: 16px; fill: var(--teal-dark); }
 
   .nav-links a:not(.btn) {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     font-weight: 600;
-    padding: 9px 4px;
-    border-bottom: 1px solid rgba(22, 48, 63, 0.06);
+    padding: 12px 6px;
+    text-align: center;
+    justify-content: center;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    background: var(--sand);
+    border: 1px solid rgba(22, 48, 63, 0.07);
+    border-radius: 12px;
+    color: var(--ink);
   }
-  .nav-links a:not(.btn)::before { content: none; }
-  .nav-links a:not(.btn)::after {
-    content: "›";
-    position: static;
-    width: auto; height: auto;
-    background: none;
-    font-size: 1.2rem;
-    color: rgba(22, 48, 63, 0.35);
-    transition: none;
+  .nav-links a:not(.btn)::before,
+  .nav-links a:not(.btn)::after { content: none; }
+  .nav-links a.active {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: var(--white);
   }
-  .nav-links a.active { color: var(--teal); }
-  .nav-links a.active::after { color: var(--teal); }
 
   .nav-links .nav-cta {
-    margin-top: 12px;
+    grid-column: 1 / -1;
+    margin-top: 4px;
     justify-content: center;
-    padding: 11px;
+    padding: 12px;
     font-size: 0.95rem;
   }
-  .drawer-foot { display: block; margin-top: 0; }
+  .drawer-foot { grid-column: 1 / -1; display: block; margin-top: 0; }
   /* The sticky call bar at the bottom of the screen already offers
-     WhatsApp, so the drawer skips the duplicate button to fit one screen */
+     WhatsApp, so the menu skips the duplicate button to fit one screen */
   .drawer-foot .btn { display: none; }
   .drawer-note {
-    margin-top: 10px;
+    margin-top: 0;
     text-align: center;
     font-size: 0.8rem;
     font-weight: 600;

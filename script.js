@@ -98,13 +98,11 @@ if (form) {
   });
 }
 
-// ---------- Welcome popup ----------
-// Shown once per browser session, shortly after the page loads.
+// ---------- Welcome popup (phone view only) ----------
+// Shown on every homepage visit on phones, shortly after the page loads.
 const welcomeOverlay = document.getElementById("welcomeOverlay");
 if (welcomeOverlay) {
-  const SEEN_KEY = "arianaWelcomeShown";
-  let alreadySeen = false;
-  try { alreadySeen = !!sessionStorage.getItem(SEEN_KEY); } catch (e) { /* private mode */ }
+  const isPhone = window.matchMedia("(max-width: 860px)").matches;
 
   const hideWelcome = () => {
     welcomeOverlay.classList.remove("show");
@@ -112,13 +110,12 @@ if (welcomeOverlay) {
     setTimeout(() => { welcomeOverlay.hidden = true; }, 320);
   };
 
-  if (!alreadySeen) {
+  if (isPhone) {
     setTimeout(() => {
       welcomeOverlay.hidden = false;
       // timer instead of requestAnimationFrame: rAF never fires in background tabs
       setTimeout(() => welcomeOverlay.classList.add("show"), 30);
       document.body.style.overflow = "hidden";
-      try { sessionStorage.setItem(SEEN_KEY, "1"); } catch (e) { /* private mode */ }
     }, 900);
   }
 
