@@ -92,8 +92,15 @@ if (form) {
     ];
     if (message) lines.push(`Details: ${message}`);
 
-    const url = `https://wa.me/917888017233?text=${encodeURIComponent(lines.join("\n"))}`;
-    window.open(url, "_blank", "noopener");
+    const url = `https://wa.me/917888071233?text=${encodeURIComponent(lines.join("\n"))}`;
+    // anchor click is more reliable than window.open on mobile browsers
+    const a = document.createElement("a");
+    a.href = url;
+    a.target = "_blank";
+    a.rel = "noopener";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
     form.reset();
   });
 }

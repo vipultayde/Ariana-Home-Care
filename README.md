@@ -14,7 +14,7 @@ Pure static site — no build step, no dependencies:
 
 ## Features
 
-- **Click-to-call & WhatsApp** CTAs everywhere (`tel:` + `wa.me` links to 078880 17233)
+- **Click-to-call & WhatsApp** CTAs everywhere (`tel:` + `wa.me` links to +91 788 807 1233)
 - **Enquiry form** that opens WhatsApp with a pre-filled message — no backend required
 - **Google Maps embed** of the business location
 - **SEO**: meta description/keywords, Open Graph tags, and `MedicalBusiness` JSON-LD schema
