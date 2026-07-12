@@ -39,6 +39,7 @@ body {
   background: var(--white);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
   overflow-x: hidden;
 }
 
@@ -879,7 +880,8 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md)
   z-index: 65;
   background: var(--white);
   box-shadow: 0 -6px 24px rgba(22, 48, 63, 0.14);
-  padding: 10px 14px;
+  /* safe-area keeps buttons above iPhone home indicator */
+  padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
   gap: 10px;
 }
 .mobile-callbar .btn { flex: 1; justify-content: center; }
@@ -1042,7 +1044,8 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md)
   .topbar-inner { justify-content: center; }
   .topbar-inner .topbar-item:first-child { display: none; }
   .services-grid { grid-template-columns: 1fr 1fr; }
-  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .stat { padding: 18px 10px; }
   .about-points { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .scale-grid, .how-grid { grid-template-columns: 1fr; }
@@ -1050,10 +1053,29 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md)
   .purpose-card { flex-direction: column; }
   .brand-promise { flex-direction: column; text-align: center; }
   .footer-grid { grid-template-columns: 1fr; }
+
+  /* Phone-first polish */
+  .hero { padding-top: 34px; }
+  .hero-sub { font-size: 1rem; }
+  .section { padding: 52px 0; }
+  .section-head { margin-bottom: 30px; }
+  .map-wrap iframe { height: 300px; }
+  /* 16px inputs stop iOS Safari from zooming in on focus */
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea { font-size: 16px; }
+  .contact-card { padding: 16px 18px; }
+  .rating-score { font-size: 3.6rem; }
 }
 
 @media (max-width: 460px) {
   .services-grid { grid-template-columns: 1fr; }
   .hero-actions .btn { width: 100%; justify-content: center; }
   .float-card { font-size: 0.72rem; padding: 9px 12px; }
+  .brand-text strong { font-size: 0.98rem; }
+  .brand-text small { font-size: 0.66rem; }
+  .brand-mark { width: 40px; height: 40px; }
+  .btn-lg { padding: 14px 22px; font-size: 0.98rem; }
+  .service-card { padding: 22px 18px; }
+  .container { width: 92%; }
 }
