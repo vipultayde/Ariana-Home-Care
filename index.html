@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=5">
+  <link rel="stylesheet" href="styles.css?v=6">
   <link rel="icon" href="images/logo.jpeg" type="image/jpeg">
   <script type="application/ld+json">
   {
@@ -710,6 +710,36 @@
     <a href="https://wa.me/917888071233" target="_blank" rel="noopener" class="btn btn-whatsapp">💬 WhatsApp</a>
   </div>
 
-  <script src="script.js?v=3"></script>
+  <!-- ======= WELCOME POPUP ======= -->
+  <div class="welcome-overlay" id="welcomeOverlay" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle" hidden>
+    <div class="welcome-modal">
+      <button class="welcome-close" id="welcomeClose" aria-label="Close popup">
+        <svg viewBox="0 0 24 24"><path d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7l1.4-1.4 6.3 6.3 6.3-6.3Z" transform="translate(1.5 0)"/></svg>
+      </button>
+      <img class="welcome-logo" src="images/logo.jpeg" alt="Ariana Home Care logo">
+      <div class="welcome-badges">
+        <span>★ 5.0 on Google</span>
+        <span>Open 24×7</span>
+      </div>
+      <h2 id="welcomeTitle">We Reach Your Home <em>Within 1 Hour</em></h2>
+      <p>
+        — or even earlier. Qualified nurses and trained caregivers across Nagpur,
+        ready whenever your family needs care.
+      </p>
+      <div class="welcome-actions">
+        <a href="#contact" class="btn btn-primary btn-lg" id="welcomeContact">
+          <svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.6 15.6 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.6 1 1 0 0 1-.25 1Z"/></svg>
+          Contact Us
+        </a>
+        <a href="https://wa.me/917888071233?text=Hello%20Ariana%20Home%20Care%2C%20I%20need%20home%20care%20services." target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1a14 14 0 0 1-1.5-.5 11.6 11.6 0 0 1-4.4-3.9 5 5 0 0 1-1-2.7 2.9 2.9 0 0 1 .9-2.2.9.9 0 0 1 .7-.3h.5c.2 0 .4 0 .6.4l.8 2c.1.2.1.4 0 .6l-.4.6-.3.3c-.1.2-.2.3-.1.5a7.6 7.6 0 0 0 1.4 1.8 8.7 8.7 0 0 0 2 1.3c.3.1.4.1.6-.1l.7-.9c.2-.2.4-.3.6-.2l1.8.9c.3.1.5.2.5.3a2.3 2.3 0 0 1-.1 1Z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+      <p class="welcome-note">📞 +91 788 807 1233 · Gorewada, Nagpur</p>
+    </div>
+  </div>
+
+  <script src="script.js?v=5"></script>
 </body>
 </html>

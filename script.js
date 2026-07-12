@@ -98,6 +98,40 @@ if (form) {
   });
 }
 
+// ---------- Welcome popup ----------
+// Shown once per browser session, shortly after the page loads.
+const welcomeOverlay = document.getElementById("welcomeOverlay");
+if (welcomeOverlay) {
+  const SEEN_KEY = "arianaWelcomeShown";
+  let alreadySeen = false;
+  try { alreadySeen = !!sessionStorage.getItem(SEEN_KEY); } catch (e) { /* private mode */ }
+
+  const hideWelcome = () => {
+    welcomeOverlay.classList.remove("show");
+    document.body.style.overflow = "";
+    setTimeout(() => { welcomeOverlay.hidden = true; }, 320);
+  };
+
+  if (!alreadySeen) {
+    setTimeout(() => {
+      welcomeOverlay.hidden = false;
+      // timer instead of requestAnimationFrame: rAF never fires in background tabs
+      setTimeout(() => welcomeOverlay.classList.add("show"), 30);
+      document.body.style.overflow = "hidden";
+      try { sessionStorage.setItem(SEEN_KEY, "1"); } catch (e) { /* private mode */ }
+    }, 900);
+  }
+
+  document.getElementById("welcomeClose").addEventListener("click", hideWelcome);
+  document.getElementById("welcomeContact").addEventListener("click", hideWelcome);
+  welcomeOverlay.addEventListener("click", (e) => {
+    if (e.target === welcomeOverlay) hideWelcome();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !welcomeOverlay.hidden) hideWelcome();
+  });
+}
+
 // ---------- Footer year ----------
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
