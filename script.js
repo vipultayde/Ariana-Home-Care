@@ -105,26 +105,22 @@ if (form) {
   });
 }
 
-// ---------- Welcome popup (phone view only) ----------
-// Shown on every homepage visit on phones, shortly after the page loads.
+// ---------- Welcome popup ----------
+// Shown on every homepage visit, at every screen size.
 const welcomeOverlay = document.getElementById("welcomeOverlay");
 if (welcomeOverlay) {
-  const isPhone = window.matchMedia("(max-width: 860px)").matches;
-
   const hideWelcome = () => {
     welcomeOverlay.classList.remove("show");
     document.body.style.overflow = "";
     setTimeout(() => { welcomeOverlay.hidden = true; }, 320);
   };
 
-  if (isPhone) {
-    setTimeout(() => {
-      welcomeOverlay.hidden = false;
-      // timer instead of requestAnimationFrame: rAF never fires in background tabs
-      setTimeout(() => welcomeOverlay.classList.add("show"), 30);
-      document.body.style.overflow = "hidden";
-    }, 900);
-  }
+  setTimeout(() => {
+    welcomeOverlay.hidden = false;
+    // timer instead of requestAnimationFrame: rAF never fires in background tabs
+    setTimeout(() => welcomeOverlay.classList.add("show"), 30);
+    document.body.style.overflow = "hidden";
+  }, 900);
 
   document.getElementById("welcomeClose").addEventListener("click", hideWelcome);
   document.getElementById("welcomeContact").addEventListener("click", hideWelcome);
