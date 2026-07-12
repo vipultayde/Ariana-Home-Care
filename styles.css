@@ -899,6 +899,9 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md)
   opacity: 0;
   transition: opacity 0.3s ease;
 }
+/* display:grid above would override the browser's [hidden] rule,
+   leaving an invisible layer that blocks every tap on the page */
+.welcome-overlay[hidden] { display: none !important; }
 .welcome-overlay.show { opacity: 1; }
 .welcome-modal {
   position: relative;
